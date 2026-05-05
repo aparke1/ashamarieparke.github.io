@@ -32,6 +32,8 @@ const skills = [
 
 const experience = [
   {
+    type: 'Internship',
+    badge: '⚙️',
     company: 'Xai Robotics',
     title: 'Technical and Educational Innovation / Software Engineering Intern',
     date: 'May 2025 - June 2025',
@@ -42,6 +44,19 @@ const experience = [
       'Helped senior engineers and supported 5+ students during engineering summer camps by troubleshooting code and explaining concepts.',
     ],
   },
+  {
+    type: 'Leadership & Academic',
+    badge: '👩‍🏫',
+    company: 'FAU Engineering and Computer Science',
+    title: 'Project Manager, Frontend Lead',
+    date: 'September 2025 - May 2026',
+    location: 'Boca Raton, FL',
+    bullets: [
+      'Co-led a 5 person cross-functional team through the full product lifecycle, from requirements gathering to a live demo, delivering an automated data cleaning tool designed for business use cases.',
+      'Built a responsive frontend in React and Tailwind CSS, enabling users to upload, preview, and configure data cleaning workflows, including automated missing value detection and handling.',
+      ' Managed task tracking and sprint coordination via Microsoft Teams, ensuring all milestones were met and the project was delivered on time to showcase to industry judges.',
+    ],
+  }
 ];
 
 const projects = [
@@ -242,27 +257,30 @@ function App() {
             </div>
           </div>
         </section>
-        {/* Experience section that maps over the experience array to display past roles and responsibilities. Each experience card includes the company, title, 
-        date, location, and key bullet points about the work done.  */}
+        {/* Experience section with a visual timeline component. Maps over experience array 
+        to display chronological progression with badges, alternating cards, and a vertical connector. */}
         <section id="experience" className="info-card reveal">
-          <SectionTitle eyebrow="Experience" title="Hands-on work" />
-          <div className="experience-list">
-            {experience.map((job) => (
-              <article key={`${job.company}-${job.title}`} className="experience-card">
-                <div className="experience-head">
-                  <div>
-                    <p className="experience-company">{job.company}</p>
-                    <h3>{job.title}</h3>
-                  </div>
-                  <p className="date-location">
-                    {job.date} · {job.location}
-                  </p>
+          <SectionTitle eyebrow="Experience" title="Growth & progression" />
+          <div className="timeline-container">
+            {experience.slice().reverse().map((job, index) => (
+              <article key={`${job.company}-${job.title}`} className={`timeline-entry ${index % 2 === 0 ? 'left' : 'right'}`}>
+                <div className="timeline-badge-wrapper">
+                  <div className="timeline-badge">{job.badge}</div>
                 </div>
-                <ul>
-                  {job.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
+                <div className="timeline-card">
+                  <div className="timeline-meta">
+                    <span className="timeline-type">{job.type}</span>
+                    <span className="timeline-date">{job.date}</span>
+                  </div>
+                  <p className="experience-company">{job.company}</p>
+                  <h3>{job.title}</h3>
+                  {job.location && <p className="timeline-location">📍 {job.location}</p>}
+                  <ul className="timeline-bullets">
+                    {job.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </div>
               </article>
             ))}
           </div>

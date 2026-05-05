@@ -493,22 +493,113 @@ h3,
   font-size: 1.25rem;
 }
 
-.experience-list {
+/* Timeline component: visual vertical timeline with alternating cards and center badges */
+.timeline-container {
+  position: relative;
+  padding: 32px 0;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent), rgba(125, 249, 200, 0.3), transparent);
+  top: 0;
+}
+
+.timeline-entry {
   display: grid;
-  gap: 18px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  position: relative;
 }
 
-.experience-card {
-  padding: 22px;
-  border-radius: 24px;
+.timeline-entry.left .timeline-badge-wrapper {
+  grid-column: 2;
 }
 
-.experience-head {
+.timeline-entry.left .timeline-card {
+  grid-column: 1;
+  text-align: right;
+  margin-right: auto;
+}
+
+.timeline-entry.right .timeline-badge-wrapper {
+  grid-column: 2;
+}
+
+.timeline-entry.right .timeline-card {
+  grid-column: 3;
+  text-align: left;
+  margin-left: auto;
+}
+
+.timeline-badge-wrapper {
   display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  align-items: flex-start;
-  margin-bottom: 14px;
+  justify-content: center;
+  grid-column: 2;
+  z-index: 10;
+}
+
+.timeline-badge {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-3));
+  border: 3px solid var(--bg);
+  font-size: 1.6rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-card {
+  padding: 24px 28px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  transition: all 300ms ease;
+}
+
+.timeline-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  justify-content: flex-start;
+}
+
+.timeline-entry.left .timeline-meta {
+  justify-content: flex-end;
+}
+
+.timeline-type {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(125, 249, 200, 0.15);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.timeline-date {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .experience-company {
@@ -520,18 +611,62 @@ h3,
   text-transform: uppercase;
 }
 
-.date-location {
-  margin: 2px 0 0;
+.timeline-location {
+  margin: 8px 0 0;
   color: var(--muted);
-  text-align: right;
-  white-space: nowrap;
+  font-size: 0.9rem;
 }
 
-.experience-card ul {
+.timeline-entry h3 {
+  margin: 8px 0 14px;
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.timeline-bullets {
   margin: 0;
   padding-left: 18px;
   display: grid;
-  gap: 10px;
+  gap: 8px;
+  list-style-type: disc;
+}
+
+.timeline-bullets li {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Responsive timeline: stack on smaller screens */
+@media (max-width: 980px) {
+  .timeline-container::before {
+    left: 24px;
+  }
+
+  .timeline-entry {
+    grid-template-columns: 56px 1fr;
+    gap: 20px;
+  }
+
+  .timeline-entry.left,
+  .timeline-entry.right {
+    grid-template-columns: 56px 1fr;
+  }
+
+  .timeline-badge-wrapper {
+    grid-column: 1;
+  }
+
+  .timeline-card {
+    grid-column: 2;
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .timeline-meta {
+    justify-content: flex-start !important;
+  }
 }
 
 .skill-grid {
