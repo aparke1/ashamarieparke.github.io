@@ -115,6 +115,22 @@ function SectionTitle({ eyebrow, title, description }) {
 }
 
 function App() {
+  const [isDark, setIsDark] = React.useState(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light');
+  };
+
+  React.useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
   return (
     <div className="page-shell">
       <div className="orb orb-one" />
@@ -127,6 +143,9 @@ function App() {
               {item.label}
             </a>
           ))}
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle dark/light mode">
+            <i className={isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill'} />
+          </button>
         </nav>
       </header>
 {/* Main content area with hero section, stats, about, education, experience, skills,
