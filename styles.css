@@ -831,3 +831,64 @@ h3,
     justify-content: space-between;
   }
 }
+
+/* Stronger mobile timeline rules to ensure cards fill available width
+   and list items wrap correctly on narrow viewports */
+@media (max-width: 640px) {
+  .timeline-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .timeline-container::before {
+    left: 28px;
+    height: 100%;
+  }
+
+  .timeline-entry {
+    grid-template-columns: 56px 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .timeline-badge-wrapper {
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+
+  .timeline-card {
+    grid-column: 2;
+    width: 100%;
+    padding: 16px;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  /* Ensure both left and right entries render badge-left / card-right on mobile */
+  .timeline-entry.left .timeline-card,
+  .timeline-entry.right .timeline-card {
+    grid-column: 2;
+    text-align: left !important;
+  }
+
+  .timeline-entry.left .timeline-badge-wrapper,
+  .timeline-entry.right .timeline-badge-wrapper {
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+
+  .timeline-meta {
+    justify-content: flex-start !important;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .timeline-bullets {
+    padding-left: 18px;
+  }
+
+  .timeline-bullets li {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
