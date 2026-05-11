@@ -54,7 +54,7 @@ const experience = [
     bullets: [
       'Co-led a 5 person cross-functional team through the full product lifecycle, from requirements gathering to a live demo, delivering an automated data cleaning tool designed for business use cases.',
       'Built a responsive frontend in React and Tailwind CSS, enabling users to upload, preview, and configure data cleaning workflows, including automated missing value detection and handling.',
-      ' Managed task tracking and sprint coordination via Microsoft Teams, ensuring all milestones were met and the project was delivered on time to showcase to industry judges.',
+      'Managed task tracking and sprint coordination via Microsoft Teams, ensuring all milestones were met and the project was delivered on time to showcase to industry judges.',
     ],
   }
 ];
@@ -84,6 +84,30 @@ const projects = [
       { label: 'GitHub', href: 'https://github.com/ashamarieparke/RecipePal' },
       { label: 'GIF Demo', href: 'https://github.com/ashamarieparke/RecipePal/blob/main/DemoGIF.gif' },
     ],
+  },
+  {
+    icon: 'fa-users',
+    title: 'Avatar CrewBook',
+    description:
+      'A full-stack web application for crew members based on the tv show Avatar: The Last Airbender, built with React and Supabase.',
+    stack: 'React, Supabase',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/ashamarieparke/avatar-crewbook' },
+      { label: 'Web App Link', href: 'https://avatar-crew-book.netlify.app/create' },
+    ]
+
+  },
+  {
+    icon: 'fa-money-bill-wave',
+    title: 'BillFeed',
+    description:
+      'A full-stack web application that allows users to post their subscriptions and ask others if they are worth it, built with React, Tailwind CSS, Supabase, and incorporated an LLM for AI-generated summaries of subscription posts.',
+    stack: 'React, Tailwind CSS, Supabase, LLM',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/ashamarieparke/BillFeed' },
+      { label: 'Web App Link', href: 'https://billfeed.netlify.app/' },
+    ],
+
   },
   {
     icon: 'fa-file-alt',
@@ -210,7 +234,7 @@ function App() {
               />
               <div className="portrait-meta">
                 <p className="portrait-name">Ashamarie Parke</p>
-                <p className="portrait-role">Aspiring software engineer and product-minded builder</p>
+                <p className="portrait-role">Aspiring AI software engineer and product-minded builder</p>
               </div>
             </div>
 
