@@ -28,6 +28,8 @@ const skills = [
   { name: 'Firebase', icon: 'fa-solid fa-database', color: '#2965f1' },
   { name: 'Bootstrap', icon: 'fa-brands fa-bootstrap', color: '#563d7c' },
   { name: 'Node.js', icon: 'fa-brands fa-node-js', color: '#339933' },
+  { name: 'Tailwind CSS', icon: 'fa-solid fa-wind', color: '#38b2ac' },
+  { name: 'Supabase', icon: 'fa-solid fa-cloud', color: '#3ecf8e' },
 ];
 
 const experience = [
