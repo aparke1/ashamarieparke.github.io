@@ -30,6 +30,16 @@ const skills = [
   { name: 'Node.js', icon: 'fa-brands fa-node-js', color: '#339933' },
   { name: 'Tailwind CSS', icon: 'fa-solid fa-wind', color: '#38b2ac' },
   { name: 'Supabase', icon: 'fa-solid fa-cloud', color: '#3ecf8e' },
+  {name: 'Pandas', icon: 'fa-solid fa-table', color: '#150458' },
+  {name: "LLM Integration", icon: 'fa-solid fa-robot', color: '#ff9900' },
+  {name: "CrewAI", icon: 'fa-solid fa-people-group', color: '#0077b6' },
+  {name: 'Tensorflow', icon: 'fa-solid fa-brain', color: '#ff6f00' },
+  {name: 'PyTorch', icon: 'fa-solid fa-fire', color: '#ee4c2c' },
+  {name: 'Product Design', icon: 'fa-solid fa-pencil-ruler', color: '#0d3b66' },
+  {name: 'Agile Methodologies', icon: 'fa-solid fa-rotate', color: '#f4a261' },
+  {name: 'UI/UX Principles', icon: 'fa-solid fa-object-group', color: '#2a9d8f' },
+  {name: 'Figma', icon: 'fa-brands fa-figma', color: '#f24e1e' },
+  {name: 'Product Management', icon: 'fa-solid fa-clipboard-list', color: '#264653' },
 ];
 
 const experience = [
