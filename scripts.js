@@ -109,18 +109,8 @@ const projects = [
     ]
 
   },
-  {
-    icon: 'fa-money-bill-wave',
-    title: 'BillFeed',
-    description:
-      'A full-stack web application that allows users to post their subscriptions and ask others if they are worth it, built with React, Tailwind CSS, Supabase, and incorporated an LLM for AI-generated summaries of subscription posts.',
-    stack: 'React, Tailwind CSS, Supabase, LLM',
-    links: [
-      { label: 'GitHub', href: 'https://github.com/ashamarieparke/BillFeed' },
-      { label: 'Web App Link', href: 'https://billfeed.netlify.app/' },
-    ],
 
-  },
+  
   {
     icon: 'fa-file-alt',
     title: 'Readme Generator for GitHub',
